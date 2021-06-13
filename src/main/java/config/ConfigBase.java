@@ -37,6 +37,7 @@ public class ConfigBase {
 
     @AfterSuite
     public void tearDown(){
+
         driver.quit();
     }
 
