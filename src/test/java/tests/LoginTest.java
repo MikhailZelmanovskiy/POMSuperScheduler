@@ -13,8 +13,8 @@ public class LoginTest extends ConfigBase {
        boolean isLogged =
                new SplashScreen(driver)
                .checkVersion("0.0.3")
-               .fillEmail("john@gmail.com")
-               .fillPassword("Jj123456$")
+               .fillEmail("strayn.mike@gmail.com")
+               .fillPassword("Qwerty!23")
                .clicklogin()
                .skipWizard()
                .isFabAddPresent();
@@ -27,5 +27,13 @@ public class LoginTest extends ConfigBase {
 
     @Test
     public void complitLoginTest() {
+        boolean isLogged =
+                new SplashScreen(driver)
+                        .checkVersion("0.0.3")
+                        .complitLogin(Credentials.builder().email("strayn.mike@gmail.com").password("Qwerty!23").build())
+                        .skipWizard()
+                        .isFabAddPresent();
+
+        Assert.assertTrue(isLogged);
     }
 }

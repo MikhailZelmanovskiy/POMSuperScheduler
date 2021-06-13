@@ -32,7 +32,10 @@ public class LoginScreen extends BaseScreen{
         return new WizardScreen(driver);
 }
 public WizardScreen complitLogin (Credentials credentials){
-        //login
+        type(emailEditText, credentials.getEmail());
+        type(passwordEditText, credentials.getPassword());
+        hideKeyboard();
+        loginButton.click();
         return new WizardScreen(driver);
 }
 
