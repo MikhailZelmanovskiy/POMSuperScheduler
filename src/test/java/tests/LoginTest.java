@@ -20,8 +20,6 @@ public class LoginTest extends ConfigBase {
                .isFabAddPresent();
 
         Assert.assertTrue(isLogged);
-
-
     }
 
 
@@ -35,5 +33,12 @@ public class LoginTest extends ConfigBase {
                         .isFabAddPresent();
 
         Assert.assertTrue(isLogged);
+    }
+    @Test
+    public void negativeLogIn() {
+                boolean error = new SplashScreen(driver)
+                        .checkVersion("0.0.3")
+                        .complitLoginNeg(Credentials.builder().email("strayn.mike@gmail.com").password("Qwerty!2543").build());
+                Assert.assertTrue(error);
     }
 }

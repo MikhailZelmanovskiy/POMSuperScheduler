@@ -4,6 +4,7 @@ import dto.Credentials;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginScreen extends BaseScreen{
     public LoginScreen(AppiumDriver<MobileElement> driver) {
@@ -16,6 +17,9 @@ public class LoginScreen extends BaseScreen{
     MobileElement passwordEditText;
     @AndroidFindBy(xpath = "//*[@resource-id='com.example.svetlana.scheduler:id/login_btn']")
     MobileElement loginButton;
+
+    @FindBy(xpath = "//*[@resource-id ='com.example.svetlana.scheduler:id/topPanel']")
+    MobileElement errorPanelView;
 
     public LoginScreen fillEmail(String email){
         type (emailEditText,email);
@@ -38,6 +42,18 @@ public WizardScreen complitLogin (Credentials credentials){
         loginButton.click();
         return new WizardScreen(driver);
 }
+    public boolean complitLoginNeg (Credentials credentials){
+        type(emailEditText, credentials.getEmail());
+        type(passwordEditText, credentials.getPassword());
+        hideKeyboard();
+        loginButton.click();
+        if(errorPanelView.isDisplayed()) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 }

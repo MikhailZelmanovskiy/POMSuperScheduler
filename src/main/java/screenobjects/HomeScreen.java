@@ -13,9 +13,16 @@ public class HomeScreen extends BaseScreen{
     @AndroidFindBy(xpath = "//*[@resource-id = 'com.example.svetlana.scheduler:id/fab_main']")
     MobileElement fabAdd;
 
+    @AndroidFindBy(xpath = "//*[@resource-id = 'com.example.svetlana.scheduler:id/fab_add_event']")
+    MobileElement fabAddEvent;
 
     public boolean isFabAddPresent(){
-        should(fabAdd,15);
+        should(fabAdd,35);
         return  true;
+    }
+    public EditCreateEventScreen initCreateNew(){
+        fabAdd.click();
+        fabAddEvent.click();
+        return new EditCreateEventScreen(driver);
     }
 }
