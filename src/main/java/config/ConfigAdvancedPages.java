@@ -12,9 +12,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class ConfigBase {
-
-     protected AppiumDriver<MobileElement> driver;
+public class ConfigAdvancedPages {
+    protected AppiumDriver<MobileElement> driver;
 
     @BeforeMethod
     public void setUp() throws MalformedURLException {
@@ -24,25 +23,22 @@ public class ConfigBase {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "qa27");
         capabilities.setCapability( MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
-        capabilities.setCapability("appPackage", "com.example.svetlana.scheduler");
-        capabilities.setCapability("appActivity", ".presentation.splashScreen.SplashScreenActivity");
+        capabilities.setCapability("appPackage", "com.h6ah4i.android.example.advrecyclerview");
+        capabilities.setCapability("appActivity", ".launcher.MainActivity");
         capabilities.setCapability("automationName", "Appium");
-        capabilities.setCapability("app","C:/Tools/v.0.0.3.apk");
-
-       capabilities.setCapability("noReset", "false");
-       capabilities.setCapability("fullReset", "true");
+        capabilities.setCapability("app","C:/Tools/AdvancedRecyclerView.apk");
+        //capabilities.setCapability("noReset", "false");
+        //capabilities.setCapability("fullReset", "true");
 
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
         //driver = EventFiringWebDriverFactory.getEventFiringWebDriver(driver,new AppiumListener());
 
     }
-
     @AfterMethod()
     public void tearDown(){
-        driver.resetApp();
-        driver.closeApp();
+        //driver.resetApp();
+        //driver.closeApp();
         driver.quit();
     }
-
 }

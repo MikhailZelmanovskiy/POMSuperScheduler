@@ -38,7 +38,9 @@ public class LoginTest extends ConfigBase {
     public void negativeLogIn() {
                 boolean error = new SplashScreen(driver)
                         .checkVersion("0.0.3")
-                        .complitLoginNeg(Credentials.builder().email("strayn.mike@gmail.com").password("Qwerty!2543").build());
+                        .complitLoginNeg(Credentials.builder()
+                                .email("strayn.mike@gmail.com")
+                                .password("Qwerty!2543").build());
                 Assert.assertTrue(error);
     }
 }
