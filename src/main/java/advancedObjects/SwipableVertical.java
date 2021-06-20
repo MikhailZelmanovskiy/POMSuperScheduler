@@ -18,7 +18,7 @@ public class SwipableVertical extends BaseScreenADV{
 
 
     public SwipableVertical swipeUpToDown(){
-        MobileElement el = list.get(0);
+        MobileElement el = list.get(1);
 
         Rectangle rect = el.getRect();
         int yFrom = rect.getY()+20;
@@ -31,9 +31,13 @@ public class SwipableVertical extends BaseScreenADV{
                 .release().perform();
         return this;
     }
-    public SwipableVertical swipeDpuwnToUp(){
+    public SwipableVertical swipeDpuwnToUp() {
         MobileElement el = list.get(3);
-
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Rectangle rect = el.getRect();
         int yFrom = rect.getY()+rect.getHeight()-20;
         int x = rect.getX()+rect.getWidth()/2;
