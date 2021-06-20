@@ -13,7 +13,7 @@ public class SwipableVertical extends BaseScreenADV{
     public SwipableVertical(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
-    @FindBy(id = "com.h6ah4i.android.example.advrecyclerview:id/container")
+    @FindBy(xpath = "//*[@resource-id='com.h6ah4i.android.example.advrecyclerview:id/container']")
     List<MobileElement> list;
 
 
@@ -26,8 +26,8 @@ public class SwipableVertical extends BaseScreenADV{
         int yTo = rect.getY()+rect.getHeight()-20;
 
         TouchAction<?> touchAction = new TouchAction<>(driver);
-        touchAction.longPress(PointOption.point(yFrom,x))
-                .moveTo(PointOption.point(yTo,x))
+        touchAction.longPress(PointOption.point(x,yFrom))
+                .moveTo(PointOption.point(x,yTo))
                 .release().perform();
         return this;
     }
@@ -40,8 +40,8 @@ public class SwipableVertical extends BaseScreenADV{
         int yTo = rect.getY()+20;
 
         TouchAction<?> touchAction = new TouchAction<>(driver);
-        touchAction.longPress(PointOption.point(yFrom,x))
-                .moveTo(PointOption.point(yTo,x))
+        touchAction.longPress(PointOption.point(x,yFrom))
+                .moveTo(PointOption.point(x,yTo))
                 .release().perform();
         return this;
     }

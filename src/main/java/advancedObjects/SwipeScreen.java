@@ -19,8 +19,8 @@ public class SwipeScreen extends BaseScreenADV{
         swipeBasic.click();
         return new SwipableBasic(driver);
     }
-    public SwipableBasic goToSwipeVertical(){
-        swipeBasic.click();
-        return new Swipableve(driver);
+    public SwipableVertical goToSwipeVertical(){
+        swipeVertical.click();
+        return new SwipableVertical(driver);
     }
 }
